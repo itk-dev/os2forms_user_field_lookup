@@ -8,5 +8,15 @@
             "name": "Mikkel Ricky",
             "email": "rimi@aarhus.dk"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+    },
+    "scripts": {
+        "coding-standards-check": "phpcs --standard=phpcs.xml.dist",
+        "coding-standards-apply": "phpcbf --standard=phpcs.xml.dist"
+    }
 }
