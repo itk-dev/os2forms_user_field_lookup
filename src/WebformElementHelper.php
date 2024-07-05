@@ -32,8 +32,11 @@ class WebformElementHelper {
 
   /**
    * Implements hook_webform_element_default_properties_alter().
+   *
+   * @phpstan-param array<string, mixed> $properties
+   * @phpstan-param array<string, mixed> $definition
    */
-  public function alterDefaultProperties(array &$properties, array &$definition) {
+  public function alterDefaultProperties(array &$properties, array &$definition): void {
     if ('os2forms_user_field_lookup' === ($definition['provider'] ?? NULL)) {
       $properties['os2forms_user_field_lookup_field_name'] = '';
     }
@@ -41,17 +44,22 @@ class WebformElementHelper {
 
   /**
    * Implements hook_webform_element_translatable_properties_alter().
+   *
+   * @phpstan-param array<string, mixed> $properties
+   * @phpstan-param array<string, mixed> $definition
    */
-  public function alterTranslatableProperties(array &$properties, array &$definition) {
+  public function alterTranslatableProperties(array &$properties, array &$definition): void {
     // Make the custom data property translatable.
     $properties[] = 'os2forms_user_field_lookup_field_name';
   }
 
   /**
    * Implements hook_webform_element_configuration_form_alter().
+   *
+   * @phpstan-param array<string, mixed> $form
    */
-  public function alterConfigurationForm(&$form, FormStateInterface $form_state) {
-    /** @var Drupal\webform_ui\Form\WebformUiElementEditForm $formObject */
+  public function alterConfigurationForm(&$form, FormStateInterface $form_state): void {
+    /** @var \Drupal\webform_ui\Form\WebformUiElementEditForm $formObject */
     $formObject = $form_state->getFormObject();
     $elementPlugin = $formObject->getWebformElementPlugin();
     $pluginDefinition = $elementPlugin->getPluginDefinition();
@@ -77,8 +85,10 @@ class WebformElementHelper {
 
   /**
    * Get filter for user field definitions.
+   *
+   * @phpstan-param array<string, mixed> $pluginDefinition
    */
-  private function getUserFieldDefinitionFilter(array $pluginDefinition) {
+  private function getUserFieldDefinitionFilter(array $pluginDefinition): mixed {
     switch ($pluginDefinition['class']) {
       case UserFieldElementCheckbox::class:
         // Get all custom boolean fields.

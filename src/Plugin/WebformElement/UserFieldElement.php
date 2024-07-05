@@ -3,8 +3,8 @@
 namespace Drupal\os2forms_user_field_lookup\Plugin\WebformElement;
 
 use Drupal\Component\Utility\NestedArray;
-use Drupal\webform\Plugin\WebformElement\TextField;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\webform\Plugin\WebformElement\TextField;
 
 /**
  * User field element.
@@ -20,6 +20,8 @@ class UserFieldElement extends TextField {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, mixed>
    */
   protected function defineDefaultProperties() {
     return [
@@ -29,8 +31,11 @@ class UserFieldElement extends TextField {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $element
+   * @phpstan-param array<string, mixed> $form
    */
-  public function alterForm(array &$element, array &$form, FormStateInterface $form_state) {
+  public function alterForm(array &$element, array &$form, FormStateInterface $form_state): void {
     if ($fieldName = $element['#os2forms_user_field_lookup_field_name'] ?? NULL) {
       if ($this->currentUser->isAuthenticated()) {
         /** @var \Drupal\user\Entity\User $user */
