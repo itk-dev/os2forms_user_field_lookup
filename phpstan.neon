@@ -1,0 +1,7 @@
+parameters:
+  level: 6
+  paths:
+    - .
+  excludePaths:
+    # @see https://github.com/mglaman/drupal-check/issues/261#issuecomment-1030141772/
+     - %rootDir%/vendor

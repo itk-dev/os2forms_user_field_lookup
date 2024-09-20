@@ -8,6 +8,8 @@ about writing changes to this log.
 
 ## [Unreleased]
 
+- Use code analysis script for GitHub Actions.
+
 ## [1.1.0] 2024-09-12
 
 - Drupal 10 compatibility.
