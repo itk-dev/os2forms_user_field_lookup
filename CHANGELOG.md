@@ -8,7 +8,7 @@ about writing changes to this log.
 
 ## [Unreleased]
 
-## [1.1.0]
+## [1.1.0] 2024-09-12
 
 - Drupal 10 compatibility.
 - Added GitHub Actions.

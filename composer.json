@@ -34,6 +34,19 @@
             "simplesamlphp/composer-module-installer": true
         }
     },
+    "extra": {
+        "patches": {
+            "drupal/webform_node_element": {
+                "3290637 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2023-05-12/webform_node_element_d10-3290637-11.patch"
+            }
+        },
+        "drupal-lenient": {
+            "allowed-list": [
+                "drupal/coc_forms_auto_export",
+                "drupal/webform_node_element"
+            ]
+        }
+    },
     "scripts": {
         "code-analysis/drupal-check": [
             "vendor/bin/drupal-check --deprecations --analysis --exclude-dir=vendor *.* src"
