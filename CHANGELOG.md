@@ -8,7 +8,7 @@ about writing changes to this log.
 
 ## [Unreleased]
 
-## [1.2.0] 2025-12-08
+## [1.2.0] 2025-12-11
 
 * Allowed `os2forms/os2forms` `5.x`.
 * Disallowed `os2forms/os2forms` `3.x`.
