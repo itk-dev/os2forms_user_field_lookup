@@ -8,6 +8,8 @@ about writing changes to this log.
 
 ## [Unreleased]
 
+## [1.3.0] 2026-10-20
+
 * Allowed `os2forms/os2forms` `6.x`.
 * Disallowed `os2forms/os2forms` `4.x`.
 * Drupal 11 compatibility.
@@ -32,7 +34,8 @@ about writing changes to this log.
 
 * Initial version
 
-[Unreleased]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.0.0...1.1.0
