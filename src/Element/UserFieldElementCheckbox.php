@@ -17,6 +17,7 @@ class UserFieldElementCheckbox extends Checkbox {
    * @phpstan-param array<string, mixed> $element
    * @phpstan-return array<string, mixed>
    */
+  #[\Override]
   public static function preRenderCheckbox($element): array {
     $element = parent::preRenderCheckbox($element);
     // @see https://stackoverflow.com/a/6905050

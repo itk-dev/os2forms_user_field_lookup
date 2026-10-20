@@ -2,7 +2,7 @@ name: OS2Forms User Field Lookup
 type: module
 description: Use user field data in webforms.
 package: OS2Forms
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10 || ^11
 dependencies:
   - drupal:webform
   - os2forms:os2forms

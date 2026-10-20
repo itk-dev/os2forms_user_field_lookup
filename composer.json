@@ -1,72 +1,74 @@
 {
     "name": "itk-dev/os2forms_user_field_lookup",
     "description": "Use user field data in webforms.",
-    "type": "drupal-module",
     "license": "MIT",
+    "type": "drupal-module",
     "authors": [
         {
             "name": "Mikkel Ricky",
             "email": "rimi@aarhus.dk"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "require": {
+        "os2forms/os2forms": "^5.0 || ^6.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "drupal/coder": "^8.3",
+        "ergebnis/composer-normalize": "^2.47",
+        "mglaman/phpstan-drupal": "^2.0",
+        "palantirnet/drupal-rector": "^1.0"
+    },
     "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
     ],
-    "require": {
-        "os2forms/os2forms": "^4.0 || ^5.0"
-    },
-    "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
-        "drupal/coder": "^8.3",
-        "mglaman/drupal-check": "^1.4",
-        "mglaman/phpstan-drupal": "~1.2.0"
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
-        "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "zaporylie/composer-drupal-optimizations": true,
             "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "ergebnis/composer-normalize": true,
+            "mglaman/composer-drupal-lenient": true,
             "simplesamlphp/composer-module-installer": true,
-            "mglaman/composer-drupal-lenient": true
-        }
+            "simplesamlphp/composer-xmlprovider-installer": false,
+            "symfony/runtime": true,
+            "zaporylie/composer-drupal-optimizations": true
+        },
+        "sort-packages": true
     },
     "extra": {
-        "patches": {
-            "drupal/webform_node_element": {
-                "3290637 - Automated Drupal 10 compatibility fixes": "https://www.drupal.org/files/issues/2023-05-12/webform_node_element_d10-3290637-11.patch"
-            }
-        },
         "drupal-lenient": {
             "allowed-list": [
                 "drupal/coc_forms_auto_export",
-                "drupal/webform_node_element"
+                "drupal/webform_node_element",
+                "drupal/events_logging",
+                "drupal/switch_page_theme"
             ]
         }
     },
     "scripts": {
-        "code-analysis/drupal-check": [
-            "vendor/bin/drupal-check --deprecations --analysis --exclude-dir=vendor *.* src"
-        ],
         "code-analysis": [
             "@code-analysis/drupal-check"
         ],
-        "coding-standards-check/phpcs": [
-            "vendor/bin/phpcs --standard=phpcs.xml.dist"
+        "code-analysis/drupal-check": [
+            "vendor/bin/drupal-check --deprecations --analysis --exclude-dir=vendor *.* src"
         ],
-        "coding-standards-check": [
-            "@coding-standards-check/phpcs"
+        "coding-standards-apply": [
+            "@coding-standards-apply/phpcs"
         ],
         "coding-standards-apply/phpcs": [
             "vendor/bin/phpcbf --standard=phpcs.xml.dist"
         ],
-        "coding-standards-apply": [
-            "@coding-standards-apply/phpcs"
+        "coding-standards-check": [
+            "@coding-standards-check/phpcs"
+        ],
+        "coding-standards-check/phpcs": [
+            "vendor/bin/phpcs --standard=phpcs.xml.dist"
         ]
     }
 }
