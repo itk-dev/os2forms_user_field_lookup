@@ -8,6 +8,11 @@ about writing changes to this log.
 
 ## [Unreleased]
 
+* Allowed `os2forms/os2forms` `6.x`.
+* Disallowed `os2forms/os2forms` `4.x`.
+* Drupal 11 compatibility.
+* Removed Drupal 9 support.
+
 ## [1.2.0] 2025-12-11
 
 * Allowed `os2forms/os2forms` `5.x`.
@@ -15,17 +20,17 @@ about writing changes to this log.
 
 ## [1.1.1] 2025-03-12
 
-- Allowed `os2forms/os2forms` 4.0.
-- Updated GitHub action dependencies.
+* Allowed `os2forms/os2forms` 4.0.
+* Updated GitHub action dependencies.
 
 ## [1.1.0] 2024-09-12
 
-- Drupal 10 compatibility.
-- Added GitHub Actions.
+* Drupal 10 compatibility.
+* Added GitHub Actions.
 
 ## [1.0.0]
 
-- Initial version
+* Initial version
 
 [Unreleased]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.2.0...HEAD
 [1.2.0]: https://github.com/itk-dev/os2forms_user_field_lookup/compare/1.1.1...1.2.0

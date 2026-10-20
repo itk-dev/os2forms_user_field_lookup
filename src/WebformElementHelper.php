@@ -17,17 +17,15 @@ class WebformElementHelper {
   use StringTranslationTrait;
 
   /**
-   * The entity field manager.
-   *
-   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
-   */
-  private $entityFieldManager;
-
-  /**
    * Constructor.
    */
-  public function __construct(EntityFieldManagerInterface $entityFieldManager) {
-    $this->entityFieldManager = $entityFieldManager;
+  public function __construct(
+      /**
+       * The entity field manager.
+       */
+      private EntityFieldManagerInterface $entityFieldManager
+  )
+  {
   }
 
   /**
@@ -45,7 +43,7 @@ class WebformElementHelper {
   /**
    * Implements hook_webform_element_translatable_properties_alter().
    *
-   * @phpstan-param array<string, mixed> $properties
+   * @phpstan-param array<mixed, mixed> $properties
    * @phpstan-param array<string, mixed> $definition
    */
   public function alterTranslatableProperties(array &$properties, array &$definition): void {
@@ -69,9 +67,7 @@ class WebformElementHelper {
         $this->entityFieldManager->getFieldDefinitions('user', 'user'),
         $this->getUserFieldDefinitionFilter($pluginDefinition)
       );
-      $options = array_map(static function (FieldDefinitionInterface $field) {
-        return $field->getLabel();
-      }, $userFieldDefinitions);
+      $options = array_map(static fn(FieldDefinitionInterface $field) => $field->getLabel(), $userFieldDefinitions);
 
       $form['element']['os2forms_user_field_lookup_field_name'] = [
         '#type' => 'select',
@@ -92,21 +88,15 @@ class WebformElementHelper {
     switch ($pluginDefinition['class']) {
       case UserFieldElementCheckbox::class:
         // Get all custom boolean fields.
-        return static function (FieldDefinitionInterface $field) {
-          return $field instanceof FieldConfig && in_array($field->getType(), ['boolean'], TRUE);
-        };
+        return static fn(FieldDefinitionInterface $field) => $field instanceof FieldConfig && in_array($field->getType(), ['boolean'], TRUE);
 
       case UserFieldElement::class:
         // Get name and email plus all custom string fields.
-        return static function (FieldDefinitionInterface $field) {
-          return in_array($field->getName(), ['name', 'mail'], TRUE)
-          || ($field instanceof FieldConfig && in_array($field->getType(), ['string'], TRUE));
-        };
+        return static fn(FieldDefinitionInterface $field) => in_array($field->getName(), ['name', 'mail'], TRUE)
+        || ($field instanceof FieldConfig && in_array($field->getType(), ['string'], TRUE));
 
       default:
-        return static function (FieldDefinitionInterface $field) {
-          return FALSE;
-        };
+        return static fn(FieldDefinitionInterface $field) => FALSE;
     }
   }
 

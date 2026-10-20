@@ -25,7 +25,7 @@ function os2forms_user_field_lookup_webform_element_default_properties_alter(arr
  *
  * @see WebformElementHelper::alterTranslatableProperties()
  *
- * @phpstan-param array<string, mixed> $properties
+ * @phpstan-param array<mixed, mixed> $properties
  * @phpstan-param array<string, mixed> $definition
  */
 function os2forms_user_field_lookup_webform_element_translatable_properties_alter(array &$properties, array &$definition): void {

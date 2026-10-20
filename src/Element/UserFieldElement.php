@@ -17,6 +17,7 @@ class UserFieldElement extends Textfield {
    * @phpstan-param array<string, mixed> $element
    * @phpstan-return array<string, mixed>
    */
+  #[\Override]
   public static function preRenderTextfield($element): array {
     $element = parent::preRenderTextfield($element);
     static::setAttributes($element, ['os2forms-user-field-lookup']);
